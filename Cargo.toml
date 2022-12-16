@@ -7,16 +7,28 @@ rust-version = "1.65"
 
 
 [dependencies]
-egui = "0.20.0"
-eframe = { version = "0.20.0", default-dependencies = false, features = [
-    "accesskit",     # Make egui comptaible with screen readers. NOTE: adds a lot of dependencies.
+itertools = "*"
+#show-image = "*"
+image = "*"
+chrono = "*"
+egui_extras = {version="*", features = ["image"]}
+ndarray ="*"
+glob = "*"
+#bitvec = "1"
+getrandom = { version = "0.2.8", features = ["js"] }
+rand = "0.8.5"
+egui = "0.20.1"
+wasm-bindgen = "0.2.83"
+eframe = { version = "0.20.1", default-dependencies = false, features = [
+#    "accesskit",     # Make egui comptaible with screen readers. NOTE: adds a lot of dependencies.
     "default_fonts", # Embed the default egui fonts.
     "glow",          # Use the glow rendering backend. Alternative: "wgpu".
+#    "wgpu",
     "persistence",   # Enable restoring app state when restarting the app.
 ] }
 
 # You only need serde if you want app persistence:
-serde = { version = "1", features = ["derive"] }
+#serde = { version = "1", features = ["derive"] }
 
 # native:
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
